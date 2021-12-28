@@ -1,7 +1,7 @@
 package br.com.confiance.concessionaria.service;
 
 import br.com.confiance.concessionaria.model.dto.VeiculoDTO;
-import br.com.confiance.concessionaria.model.dto.CreateVeiculo;
+import br.com.confiance.concessionaria.model.dto.CreateVeiculoDTO;
 
 import java.util.List;
 
@@ -19,5 +19,5 @@ public interface VeiculoService {
 
     VeiculoDTO buscarVeiculoPorPlaca(String placa);
 
-    VeiculoDTO cadastrarVeiculo(CreateVeiculo veiculoNovo);
+    VeiculoDTO cadastrarVeiculo(CreateVeiculoDTO veiculoNovo);
 }

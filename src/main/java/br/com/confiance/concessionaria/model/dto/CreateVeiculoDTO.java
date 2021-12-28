@@ -4,7 +4,7 @@ import br.com.confiance.concessionaria.model.entity.Cor;
 import br.com.confiance.concessionaria.model.entity.Modelo;
 import br.com.confiance.concessionaria.model.entity.Filial;
 
-public class CreateVeiculo {
+public class CreateVeiculoDTO {
     private int codModelo;
     private Long km;
     private int codCor;

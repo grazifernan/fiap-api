@@ -1,13 +1,11 @@
 package br.com.confiance.concessionaria.controller;
 
-import br.com.confiance.concessionaria.model.dto.CreateVeiculo;
+import br.com.confiance.concessionaria.model.dto.CreateVeiculoDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import br.com.confiance.concessionaria.model.dto.VeiculoDTO;
 import br.com.confiance.concessionaria.service.VeiculoService;
-import br.com.confiance.concessionaria.model.entity.Veiculo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -37,7 +35,7 @@ public class ConcessionariaController {
     }
 
     @GetMapping("/cor/{codMarca}/{codModelo}/{ano}/{codCor}")
-    public List<VeiculoDTO> buscarVeiculoPorAno(@PathVariable int codMarca, @PathVariable int codModelo,
+    public List<VeiculoDTO> buscarVeiculoPorCor(@PathVariable int codMarca, @PathVariable int codModelo,
                                                 @PathVariable Long ano, @PathVariable int codCor){
         return veiculoService.buscarVeiculoPorCor( codMarca,  codModelo,  ano, codCor);
 
@@ -55,19 +53,19 @@ public class ConcessionariaController {
 
     @PostMapping("/cadastro")
     @ResponseStatus(HttpStatus.CREATED)
-    public VeiculoDTO cadastrarVeiculo(@RequestBody CreateVeiculo createVeiculo){
+    public VeiculoDTO cadastrarVeiculo(@RequestBody CreateVeiculoDTO createVeiculoDTO){
 
-        createVeiculo.setCodCor(createVeiculo.getCodCor());
-        createVeiculo.setCodFilial(createVeiculo.getCodFilial());
-        createVeiculo.setCodModelo(createVeiculo.getCodModelo());
-        createVeiculo.setDescricao(createVeiculo.getDescricao());
-        createVeiculo.setKm(createVeiculo.getKm());
-        createVeiculo.setPlaca(createVeiculo.getPlaca());
-        createVeiculo.setRenavam(createVeiculo.getRenavam());
-        createVeiculo.setValor(createVeiculo.getValor());
-        createVeiculo.setCodFilial(createVeiculo.getCodFilial());
+        createVeiculoDTO.setCodCor(createVeiculoDTO.getCodCor());
+        createVeiculoDTO.setCodFilial(createVeiculoDTO.getCodFilial());
+        createVeiculoDTO.setCodModelo(createVeiculoDTO.getCodModelo());
+        createVeiculoDTO.setDescricao(createVeiculoDTO.getDescricao());
+        createVeiculoDTO.setKm(createVeiculoDTO.getKm());
+        createVeiculoDTO.setPlaca(createVeiculoDTO.getPlaca());
+        createVeiculoDTO.setRenavam(createVeiculoDTO.getRenavam());
+        createVeiculoDTO.setValor(createVeiculoDTO.getValor());
+        createVeiculoDTO.setCodFilial(createVeiculoDTO.getCodFilial());
 
-        return veiculoService.cadastrarVeiculo(createVeiculo);
+        return veiculoService.cadastrarVeiculo(createVeiculoDTO);
     }
 
 

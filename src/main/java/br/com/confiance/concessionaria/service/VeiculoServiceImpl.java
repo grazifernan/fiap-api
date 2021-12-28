@@ -1,13 +1,10 @@
 package br.com.confiance.concessionaria.service;
 
-import br.com.confiance.concessionaria.model.dto.CreateVeiculo;
+import br.com.confiance.concessionaria.model.dto.CreateVeiculoDTO;
 import br.com.confiance.concessionaria.model.dto.VeiculoDTO;
 import br.com.confiance.concessionaria.model.entity.*;
-import br.com.confiance.concessionaria.service.VeiculoService;
 import org.springframework.stereotype.Service;
 import br.com.confiance.concessionaria.repository.VeiculoRepository;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -120,7 +117,7 @@ public class VeiculoServiceImpl implements VeiculoService {
 
 
     @Override
-    public VeiculoDTO cadastrarVeiculo(CreateVeiculo veiculoNovo) {
+    public VeiculoDTO cadastrarVeiculo(CreateVeiculoDTO veiculoNovo) {
 
         Modelo modelo = new Modelo();
         modelo.setCodModelo(veiculoNovo.getCodModelo());

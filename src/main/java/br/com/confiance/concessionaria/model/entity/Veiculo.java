@@ -1,6 +1,5 @@
 package br.com.confiance.concessionaria.model.entity;
 
-import br.com.confiance.concessionaria.model.dto.CreateVeiculo;
 import br.com.confiance.concessionaria.model.dto.VeiculoDTO;
 
 import javax.persistence.*;
