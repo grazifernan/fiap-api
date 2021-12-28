@@ -21,14 +21,14 @@ public class Modelo {
     private Combustivel codCombustivel;
 
     @Column(name="ano")
-    private Integer ano;
+    private Long ano;
 
     @Column(name="descricao")
     private String modelo;
 
     public Modelo(){};
 
-    public Modelo(Integer codModelo, Marca codMarca, Combustivel codCombustivel, Integer ano, String modelo) {
+    public Modelo(Integer codModelo, Marca codMarca, Combustivel codCombustivel, Long ano, String modelo) {
         this.codModelo = codModelo;
         this.codMarca = codMarca;
         this.codCombustivel = codCombustivel;
@@ -60,11 +60,11 @@ public class Modelo {
         this.codCombustivel = codCombustivel;
     }
 
-    public Integer getAno() {
+    public Long getAno() {
         return ano;
     }
 
-    public void setAno(Integer ano) {
+    public void setAno(Long ano) {
         this.ano = ano;
     }
 

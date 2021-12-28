@@ -43,7 +43,7 @@ public class Veiculo {
 
     public Veiculo(){}
 
-    //    public Veiculo(CreateVeiculo veiculo) {
+
     public Veiculo(VeiculoDTO veiculo) {
         //this.id = veiculo.getId();
         this.codModelo = veiculo.getCodModelo();
