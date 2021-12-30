@@ -8,6 +8,8 @@ import br.com.confiance.concessionaria.service.VeiculoService;
 import java.util.List;
 
 @RestController
+//assim que implementar o jwt, precisamos retirar esta annotation, pois ela desabilita o CORS
+@CrossOrigin
 @RequestMapping("veiculos")
 public class ConcessionariaController {
 
