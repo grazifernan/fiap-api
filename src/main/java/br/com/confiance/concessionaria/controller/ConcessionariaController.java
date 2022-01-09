@@ -68,6 +68,15 @@ public class ConcessionariaController {
         return veiculoService.listarFiliais();
     }
 
+    @GetMapping("/listarcores")
+    public List<CorDTO> listarCores(){
+        return veiculoService.listarCores();
+    }
+
+    @GetMapping("/buscarCor/{codCor}")
+    public CorDTO buscarCor(@PathVariable int codCor){
+        return veiculoService.buscarCor(codCor);
+    }
 
     @PostMapping("/cadastro")
     @ResponseStatus(HttpStatus.CREATED)

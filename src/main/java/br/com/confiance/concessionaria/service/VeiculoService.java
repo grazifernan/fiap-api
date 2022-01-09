@@ -29,5 +29,10 @@ public interface VeiculoService {
     List<ModeloDTO> listarModelos();
 
     List<FilialDTO> listarFiliais();
+
+    List<CorDTO> listarCores();
+
+    CorDTO buscarCor(int codCor);
+
     FilialDTO buscarFilialPorCodigo(int codFilial);
 }

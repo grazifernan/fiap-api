@@ -16,14 +16,18 @@ public class VeiculoServiceImpl implements VeiculoService {
     private final MarcaRepository marcaRepository;
     private final ModeloRepository modeloRepository;
     private final FilialRepository filialRepository;
+    private final CorRepository corRepository;
+
 
     public VeiculoServiceImpl(VeiculoRepository veiculoRepository, MarcaRepository marcaRepository,
-                              ModeloRepository modeloRepository, FilialRepository filialRepository){
+                              ModeloRepository modeloRepository, FilialRepository filialRepository,
+                              CorRepository corRepository){
 
         this.veiculoRepository = veiculoRepository;
         this.marcaRepository = marcaRepository;
         this.modeloRepository = modeloRepository;
         this.filialRepository = filialRepository;
+        this.corRepository = corRepository;
     }
 
     @Override
@@ -198,7 +202,12 @@ public class VeiculoServiceImpl implements VeiculoService {
         Marca marca = new Marca();
         marca.setCodMarca(codMarca);
 
-        modeloList = modeloRepository.findAllBycodMarca(marca);
+        if(codMarca == 0){
+            modeloList = modeloRepository.findAll();
+        }
+        else{
+            modeloList = modeloRepository.findAllBycodMarca(marca);
+        }
 
         return modeloList.stream()
                 .map(modelo -> new ModeloDTO(modelo) )
@@ -236,6 +245,23 @@ public class VeiculoServiceImpl implements VeiculoService {
                 .map(filial -> new FilialDTO(filial) )
                 .collect(Collectors.toList());
 
+    };
+
+    @Override
+    public List<CorDTO> listarCores(){
+        List<Cor> corList;
+        corList = corRepository.findAll();
+
+        return corList.stream()
+                .map(cor -> new CorDTO(cor) )
+                .collect(Collectors.toList());
+    };
+
+    @Override
+    public CorDTO buscarCor(int codCor){
+        Cor corRepo = corRepository.findBycodCor(codCor);
+        CorDTO cor = new CorDTO(corRepo);
+        return cor;
     };
 
 
