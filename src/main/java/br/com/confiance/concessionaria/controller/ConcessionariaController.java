@@ -20,6 +20,12 @@ public class ConcessionariaController {
         this.veiculoService = veiculoService;
     }
 
+    @GetMapping("/consultar/{codMarca}/{codModelo}/{ano}/{codEmpresa}/{codCor}")
+    public List<VeiculoDTO> buscarVeiculos(@PathVariable int codMarca, @PathVariable int codModelo, @PathVariable int ano
+                                        , @PathVariable int codEmpresa, @PathVariable int codCor){
+        return veiculoService.buscarVeiculos(codMarca, codModelo, ano, codEmpresa, codCor);
+    }
+
     @GetMapping("/consultapormarca/{codMarca}")
     public List<VeiculoDTO> buscarVeiculosPorMarca(@PathVariable int codMarca){
         return veiculoService.buscarVeiculosPorMarca(codMarca);

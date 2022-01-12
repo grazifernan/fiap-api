@@ -31,6 +31,17 @@ public class VeiculoServiceImpl implements VeiculoService {
     }
 
     @Override
+    public List<VeiculoDTO> buscarVeiculos(int codMarca, int codModelo, int ano, int codEmpresa, int codCor){
+
+        List<Veiculo> veiculoList = veiculoRepository.findAllByCustomQuery(codMarca, codModelo, ano, codEmpresa, codCor);
+
+        return veiculoList.stream()
+                .map(veiculo -> new VeiculoDTO(veiculo) )
+                .collect(Collectors.toList());
+
+    }
+
+    @Override
     public List<VeiculoDTO> buscarVeiculosPorMarca(int codMarca){
 
         List<Veiculo> veiculoList;

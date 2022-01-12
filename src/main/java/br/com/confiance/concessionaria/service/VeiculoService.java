@@ -1,10 +1,13 @@
 package br.com.confiance.concessionaria.service;
 
 import br.com.confiance.concessionaria.model.dto.*;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
 public interface VeiculoService {
+
+    List<VeiculoDTO> buscarVeiculos(int codMarca, int codModelo, int ano, int codEmpresa, int codCor);
 
     List<VeiculoDTO> buscarVeiculosPorMarca(int codMarca);
 
